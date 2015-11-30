@@ -39,6 +39,9 @@ def setup():
                              -xkb-config-root /usr/share/X11/xkb \
                              -no-warnings-are-errors \
                              -no-use-gold-linker \
+                             -skip qtwebengine \
+                             -dbus-linked \
+                             -openssl-linked  \
                              -examplesdir /usr/lib/qt5/examples")
 
 
