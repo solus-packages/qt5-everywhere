@@ -6,7 +6,7 @@
         <Homepage>http://qt.digia.com/</Homepage>
         <Packager>
             <Name>Ikey Doherty</Name>
-            <Email>ikey@evolve-os.com</Email>
+            <Email>ikey@solus-project.com</Email>
         </Packager>
         <Summary>Cross platform application and UI framework</Summary>
         <Description>Cross platform application and UI development framework</Description>
@@ -122,6 +122,14 @@
     </Package>
 
     <History>
+        <Update release="13">
+            <Date>07-20-2016</Date>
+            <Version>5.4.0</Version>
+            <Comment>Rebuild against new PulseAudio 9</Comment>
+            <Name>Ikey Doherty</Name>
+            <Email>ikey@solus-project.com</Email>
+        </Update>
+
         <Update release="12">
             <Date>03-02-2016</Date>
             <Version>5.4.0</Version>
