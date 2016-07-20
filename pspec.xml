@@ -66,6 +66,11 @@
             <Path fileType="data">/usr/share/qt5/*.pak</Path>
             <Path fileType="data">/usr/share/qt5/*.dat</Path>
         </Files>
+        <RuntimeDependencies>
+            <Dependency>libpng</Dependency>
+            <Dependency>gstreamer-1.0-plugins-base</Dependency>
+            <Dependency>libjpeg-turbo</Dependency>
+        </RuntimeDependencies>
     </Package>
 
     <Package>
@@ -81,6 +86,7 @@
         </Files>
         <RuntimeDependencies>
             <Dependency release="current">qt5</Dependency>
+            <Dependency release="current">libpng-devel</Dependency>
         </RuntimeDependencies>
     </Package>
 
@@ -122,6 +128,14 @@
     </Package>
 
     <History>
+        <Update release="14">
+            <Date>07-21-2016</Date>
+            <Version>5.4.0</Version>
+            <Comment>Quick fixes to unbreak building against Qt</Comment>
+            <Name>Ikey Doherty</Name>
+            <Email>ikey@solus-project.com</Email>
+        </Update>
+
         <Update release="13">
             <Date>07-20-2016</Date>
             <Version>5.4.0</Version>
