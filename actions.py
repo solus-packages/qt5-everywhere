@@ -1,11 +1,11 @@
-
 #!/usr/bin/python
 
-
+import os
 from pisi.actionsapi import shelltools, get, autotools, pisitools
 
 def setup():
     del os.environ["LD_AS_NEEDED"]
+
     # NOTE: —no-warnings-are-errors  is due to ld.gold warnings:
     # sqlite3 hidden symbols
     autotools.rawConfigure ("-opensource \
