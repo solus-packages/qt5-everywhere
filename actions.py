@@ -6,6 +6,12 @@ from pisi.actionsapi import shelltools, get, autotools, pisitools
 def setup():
     del os.environ["LD_AS_NEEDED"]
 
+    cxxflags = get.CXXFLAGS()
+    # Temporary, due to GCC 6. Fixed in Qt 5.7, which will come after we
+    # have finished GNOME 3.20 in Solus
+    cxxflags += " -fno-delete-null-pointer-checks"
+    shelltools.export("CXXFLAGS", cxxflags)
+
     # NOTE: —no-warnings-are-errors  is due to ld.gold warnings:
     # sqlite3 hidden symbols
     autotools.rawConfigure ("-opensource \
