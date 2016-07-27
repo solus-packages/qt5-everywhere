@@ -1,0 +1,103 @@
+name       : qt5
+version    : 5.7.0
+release    : 18
+source     :
+    - http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.gz : 4661905915d6265243e17fe59852930a229cf5b054ce5af5f48b34da9112ab5f
+license    :
+    - FDL-1.3
+    - GPL-2.0
+    - LGPL-2.1
+    - LGPL-3.0
+component  : desktop.qt
+summary    : Cross platform application and UI framework
+builddeps  :
+    - pkgconfig(atk)
+    - pkgconfig(alsa)
+    - pkgconfig(cairo)
+    - pkgconfig(gl)
+    - pkgconfig(gstreamer-1.0)
+    - pkgconfig(gstreamer-plugins-base-1.0)
+    - pkgconfig(gtk+-2.0)
+    - pkgconfig(icu-uc)
+    - pkgconfig(libdrm)
+    - pkgconfig(libpulse)
+    - pkgconfig(libtiff-4)
+    - pkgconfig(nss)
+    - pkgconfig(pango)
+    - pkgconfig(ruby-2.2)
+    - pkgconfig(sqlite3)
+    - pkgconfig(x11)
+    - pkgconfig(xcb)
+    - pkgconfig(xcomposite)
+    - pkgconfig(xcursor)
+    - pkgconfig(xext)
+    - pkgconfig(xi)
+    - pkgconfig(xkbcommon)
+    - pkgconfig(xrandr)
+    - pkgconfig(xtst)
+    - pkgconfig(xv)
+    - cups-devel
+    - gperf
+    - libcap2-devel
+    - libjpeg-turbo-devel
+    - zlib-devel
+patterns   :
+    - devel :
+        - /usr/bin
+        - /usr/lib/cmake
+        - /usr/lib/pkgconfig
+        - /usr/lib/qt5/mkspecs
+    - demos :
+        - /usr/lib/qt5/examples
+    - docs :
+        - /usr/share/doc/qt5
+    - translations :
+        - /usr/share/qt5/translations
+        - /usr/share/qt5/phrasebooks
+description: |
+    Cross platform application and UI development framework
+setup      : |
+    unset LD_AS_NEEDED
+    ./configure -opensource \
+                -release \
+                -confirm-license \
+                -shared \
+                -no-static \
+                -largefile \
+                -cups \
+                -eglfs \
+                -fontconfig \
+                -gui \
+                -icu \
+                -opengl \
+                -widgets \
+                -xcb \
+                -qt-pcre \
+                -qt-xcb \
+                -no-pch \
+                -skip qtwebengine \
+                -dbus-linked \
+                -openssl-linked \
+                -system-harfbuzz \
+                -system-libjpeg \
+                -system-libpng \
+                -system-sqlite \
+                -system-xkbcommon \
+                -system-zlib \
+                -nomake tests \
+                -no-warnings-are-errors \
+                -no-use-gold-linker \
+                -prefix /usr \
+                -archdatadir /usr/lib/qt5 \
+                -datadir /usr/share/qt5 \
+                -docdir /usr/share/doc/qt5 \
+                -sysconfdir /etc/xdg \
+                -examplesdir /usr/lib/qt5/examples \
+                -xkb-config-root /usr/share/X11/xkb
+build      : |
+    unset LD_AS_NEEDED
+    %make
+install    : |
+    unset LD_AS_NEEDED
+    %make install INSTALL_ROOT="$installdir"
+    rm $installdir/usr/lib/*.prl || :
