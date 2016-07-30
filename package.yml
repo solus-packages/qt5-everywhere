@@ -1,6 +1,6 @@
 name       : qt5
 version    : 5.7.0
-release    : 18
+release    : 19
 source     :
     - http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.gz : 4661905915d6265243e17fe59852930a229cf5b054ce5af5f48b34da9112ab5f
 license    :
@@ -58,6 +58,7 @@ description: |
     Cross platform application and UI development framework
 setup      : |
     unset LD_AS_NEEDED
+    %patch -p1 < $pkgfiles/0001-Return-correct-desktop-names-for-cases-when-XDG_CURR.patch
     ./configure -opensource \
                 -release \
                 -confirm-license \
