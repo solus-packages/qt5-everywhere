@@ -1,6 +1,6 @@
 name       : qt5
 version    : 5.7.0
-release    : 19
+release    : 20
 source     :
     - http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.gz : 4661905915d6265243e17fe59852930a229cf5b054ce5af5f48b34da9112ab5f
 license    :
@@ -18,8 +18,10 @@ builddeps  :
     - pkgconfig(gstreamer-1.0)
     - pkgconfig(gstreamer-plugins-base-1.0)
     - pkgconfig(gtk+-2.0)
+    - pkgconfig(gtk+-3.0)
     - pkgconfig(icu-uc)
     - pkgconfig(libdrm)
+    - pkgconfig(libinput)
     - pkgconfig(libpulse)
     - pkgconfig(libtiff-4)
     - pkgconfig(nss)
@@ -93,6 +95,10 @@ setup      : |
                 -datadir /usr/share/qt5 \
                 -docdir /usr/share/doc/qt5 \
                 -sysconfdir /etc/xdg \
+                -system-proxies \
+                -gstreamer 1.0 \
+                -libinput \
+                -gtk \
                 -examplesdir /usr/lib/qt5/examples \
                 -xkb-config-root /usr/share/X11/xkb
 build      : |
