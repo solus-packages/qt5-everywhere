@@ -1,6 +1,6 @@
 name       : qt5
 version    : 5.6.1
-release    : 21
+release    : 22
 source     :
     - http://download.qt.io/archive/qt/5.6/5.6.1/single/qt-everywhere-opensource-src-5.6.1.tar.gz : 2e5be28fcaaf95e179041a0eb95ccca69b17f50e39245e20974fad9469c10f2f
 license    :
